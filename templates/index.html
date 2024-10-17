@@ -1,0 +1,75 @@
+{% extends "base.html" %}  
+
+{%block head%}
+<title> Location tracker </title>
+{%endblock%}
+
+{%block body%}
+<div id="header">
+<h1> Location tracker  </h1><img style="top: 23px;right: 0;position: absolute;" src="{{url_for('static',filename='resources/earth.bmp')}}" width="150" height="150">
+
+</div>
+
+<div id="backgroundloop">
+   <img id="sshot" src="{{url_for('static',filename='resources/loop1.jpg')}}">
+</div>
+<div id="noti">
+Type an ip address or a number along with the country code to generate the location
+</div>
+
+<div id="main">
+
+<form  name="form1" action="/" id="forms" method="POST">
+<input type='text' id="pn" name="pnumber" placeholder="IP,Number with countrycode">
+<br>
+<br>
+<button onclick="this.innerHTML='Decoding...'"id="send"> Get Location </button>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+<div id="locate">
+
+</div>
+<script>
+   var imgs = document.getElementById("sshot")
+let i = 1
+var inter = setInterval(()=>{
+  if (i == 1){
+    imgs.src="{{url_for('static',filename='resources/loop1.jpg')}}"
+   }
+ if (i == 2){
+  imgs.src="{{url_for('static',filename='resources/loop2.jpg')}}"
+ }
+ if (i == 3){
+  imgs.src="{{url_for('static',filename='resources/loop3.jpg')}}"
+ }
+ if (i == 4){
+  imgs.src="{{url_for('static',filename='resources/loop4.jpg')}}"
+ }
+ if (i == 5){
+  imgs.src="{{url_for('static',filename='resources/loop5.jpg')}}"
+ }
+ if (i == 6){
+  imgs.src="{{url_for('static',filename='resources/loop6.jpg')}}"
+ }
+ if (i == 7){
+  imgs.src="{{url_for('static',filename='resources/loop7.jpg')}}"
+ }
+ if (i > 7){
+   i=1
+ }
+ i++
+},5000 )
+
+</script>
+<script src="{{url_for("static",filename="js/index.js")}}"></script>
+
+
+
+<footer>copwright &copy; Evavictor 2024</footer>
+{%endblock%}
+
